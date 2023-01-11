@@ -6,7 +6,7 @@ const isValidName = function (name) {
 }; 
 
 const isValidFullName = function (name) {
-  const validName = /^[a-z A-Z_]{1,50}$/;
+  const validName = /^[a-z A-Z,]{1,50}$/;
   return validName.test(name);
 };
 
