@@ -4,6 +4,7 @@ const internModel = require ("../models/internModel")
 
  
 const createCollege = async function(req,res){
+    res.setHeader("Access-Control-Allow-Origin", "*")
 try{
     let data = req.body
     const{name, fullName, logoLink} = data
@@ -12,7 +13,7 @@ try{
     if(!name){return res.status(400).send({stats:false,msg:" name is required"})}
     if(!validator.isValidName(name)){ return res.status(400).send({status: false, msg: "Name not valid"})}
 
-    if(!fullName){ return res.status(400).send({stats:false, msg:" Fullname is required"})}
+    if(!fullName || fullName.trim().length == 0){ return res.status(400).send({stats:false, msg:" Fullname is required"})}
     if(!validator.isValidFullName(fullName)){ return res.status(400).send({status: false, msg: "fullName not valid"})}
     
     if(!logoLink){ return res.status(400).send({stats:false,msg:" LogoLink is required"})}
@@ -31,6 +32,7 @@ catch(err){
 
 
 const getcollege = async function(req,res){
+    res.setHeader("Access-Control-Allow-Origin", "*")
 try {
     let collegeName = req.query["collegeName"]
     if(!collegeName) return res.status(400).send({status:false , msg:"please enter collegeName"})

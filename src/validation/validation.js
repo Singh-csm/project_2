@@ -11,7 +11,7 @@ const isValidFullName = function (name) {
 };
 
 const isValidMobile = function (name) {
-  const validName = /^[0-9]{10}$/;
+  const validName = /^[6-9]{1}[0-9]{9}$/;
   return validName.test(name);
 };
 

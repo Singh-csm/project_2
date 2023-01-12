@@ -4,6 +4,7 @@ const validator = require("../validation/validation")
 const emailValidator = require("email-validator")
  
 const createIntern = async function(req,res){ 
+    res.setHeader("Access-Control-Allow-Origin","*")
  try{
         let data = req.body
         
